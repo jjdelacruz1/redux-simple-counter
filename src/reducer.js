@@ -1,13 +1,43 @@
 const initialState = {
-    value: 0
+    value: 0,
+    color: 'black'
 }
 
-const reducer = (state = initialState, action) => {
-    let { type } = action;
-    if (type === "INCREMENT") {
-        return {
-            value: state.value + 1
-        }
+function deepCopy (x) {
+    return JSON.parse(JSON.stringify(x))
+}
+
+const reducer = (currentState, action) => {
+
+    console.log('Here is the action:', action)
+    console.log('==================')
+
+    // first run: there is no state
+    if (!currentState) {
+        return deepCopy(initialState)
     }
-    return state
+
+    let nextState = deepCopy(currentState)
+    const { type } = action;
+    if (type === "INCREMENT") {
+        nextState.value = nextState.value + 1
+    } 
+
+    else if (type === "DECREMENT") {
+        nextState.value = nextState.value -1
+    }
+
+    else if (type === "INCREMENTFIVE") {
+        nextState.value = nextState.value + 5
+    }
+
+    else if (type === "DECREMENTFIVE") {
+        nextState.value = nextState.value - 5
+    }
+
+    else if (type === "COLORCHANGE") {
+        nextState.color = pickColor.value
+    }
+
+    return nextState
 }
