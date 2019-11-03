@@ -39,5 +39,9 @@ const reducer = (currentState, action) => {
         nextState.color = pickColor.value
     }
 
+    else if (type === "NEWVALUE") {
+        nextState.value = nextState.value + parseInt(newValue.value)
+    }
+
     return nextState
 }

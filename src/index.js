@@ -8,7 +8,7 @@ const { subscribe, dispatch, getState } = createStore(reducer);
 subscribe(() => render(getState()))
 // dispatch({type: 'INIT'})
 // setTimeout(function () {
-//   dispatch({type: 'COLORCHANGE', color: 'red'})
+//   dispatch({type 'COLORCHANGE', color: 'red'})
 // }, 1000)
 
 // Dispatch the "INCREMENT" action every time the +1 button is pressed
@@ -29,3 +29,10 @@ const pickColor = document.getElementById('colorChanger')
 pickColor.addEventListener('change', e => 
   dispatch ({ type: "COLORCHANGE", color: pickColor.value})
 )
+
+const newValue = document.getElementById('newValue')
+newValue.addEventListener('keyup', function(e) {
+  if (e.keyCode ===13) {
+    dispatch ({ type: "NEWVALUE" })
+  }
+}).value
