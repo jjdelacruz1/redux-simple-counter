@@ -43,5 +43,17 @@ const reducer = (currentState, action) => {
         nextState.value = nextState.value + parseInt(newValue.value)
     }
 
+    else if (type === "RESET") {
+        nextState.value = 0
+    }
+
+    else if (type === "ADDCOUNTER") {
+        //add another counter
+    }
+
+    else if (type === "REMOVECOUNTER") {
+        //remove the last counter
+    }
+
     return nextState
 }
