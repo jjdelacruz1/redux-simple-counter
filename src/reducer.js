@@ -40,7 +40,7 @@ const reducer = (currentState, action) => {
     }
 
     else if (type === "NEWVALUE") {
-        nextState.value = nextState.value + parseInt(newValue.value)
+        nextState.value = parseInt(newValue.value)
     }
 
     else if (type === "RESET") {
